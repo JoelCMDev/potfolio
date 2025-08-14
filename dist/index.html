@@ -6,69 +6,76 @@
   <title>JoelCMDev | FullStack Developer</title>
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script type="module" crossorigin src="/assets/index-d5388c0c.js"></script>
-  <link rel="stylesheet" href="/assets/index-cba62e92.css">
+  
+  <script type="module" crossorigin src="/assets/main-f47efb6c.js"></script>
+  <link rel="stylesheet" href="/assets/index-a2744726.css">
 </head>
-<body class="bg-gray-50 font-sans text-gray-800">
+<body class="bg-gradient-to-b from-gray-50 to-indigo-50 min-h-screen font-sans text-gray-800 overflow-x-hidden">
   <!-- Language Selector -->
-  <div class="fixed top-4 right-4 z-50 flex space-x-2 bg-white p-2 rounded-full shadow-md">
-    <button onclick="changeLanguage('ca')" class="language-selector active-lang" id="lang-ca">CA</button>
-    <button onclick="changeLanguage('es')" class="language-selector" id="lang-es">ES</button>
-    <button onclick="changeLanguage('en')" class="language-selector" id="lang-en">EN</button>
+  <div id="lang-selector" class="hidden fixed top-4 right-4 z-50 flex space-x-2 bg-white/80 backdrop-blur-sm p-2 rounded-full shadow-lg border border-gray-200">
+    <button id="lang-ca" class="language-selector w-10 h-10 rounded-full bg-primary text-white font-bold">CA</button>
+    <button id="lang-es" class="language-selector w-10 h-10 rounded-full bg-gray-200 hover:bg-gray-300 transition">ES</button>
+    <button id="lang-en" class="language-selector w-10 h-10 rounded-full bg-gray-200 hover:bg-gray-300 transition">EN</button>
+    <button id="lang-close" class="w-10 h-10 rounded-full bg-gray-200 hover:bg-gray-300 transition flex items-center justify-center">
+      <i class="fas fa-times text-gray-700"></i>
+    </button>
   </div>
 
   <!-- Navbar -->
-  <nav class="bg-white shadow-lg sticky top-0 z-50">
+  <nav class="bg-white/90 backdrop-blur-sm shadow-md sticky top-0 z-40">
     <div class="max-w-6xl mx-auto px-4">
       <div class="flex justify-between items-center py-4">
         <div class="flex items-center space-x-4">
           <span class="text-2xl font-bold text-primary">JoelCMDev</span>
         </div>
         <div class="hidden md:flex items-center space-x-8">
-          <a href="#inici" class="text-gray-700 hover:text-primary transition" data-i18n="nav.home">Inici</a>
-          <a href="#sobre-mi" class="text-gray-700 hover:text-primary transition" data-i18n="nav.about">Sobre mi</a>
-          <a href="#habilitats" class="text-gray-700 hover:text-primary transition" data-i18n="nav.skills">Habilitats</a>
-          <a href="#experiencia" class="text-gray-700 hover:text-primary transition" data-i18n="nav.experience">Experiència</a>
-          <a href="#projectes" class="text-gray-700 hover:text-primary transition" data-i18n="nav.projects">Projectes</a>
-          <a href="#contacte" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary transition" data-i18n="nav.contact">Contacte</a>
+          <a href="#inici" class="nav-link" data-i18n="nav.home">Inici</a>
+          <a href="#sobre-mi" class="nav-link" data-i18n="nav.about">Sobre mi</a>
+          <a href="#habilitats" class="nav-link" data-i18n="nav.skills">Habilitats</a>
+          <a href="#experiencia" class="nav-link" data-i18n="nav.experience">Experiència</a>
+          <a href="#projectes" class="nav-link" data-i18n="nav.projects">Projectes</a>
+          <a href="#contacte" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary transition shadow-md hover:shadow-lg" data-i18n="nav.contact">Contacte</a>
         </div>
-        <div class="md:hidden">
-          <button id="menu-btn" class="text-gray-700 focus:outline-none">
+        <div class="flex items-center space-x-4">
+          <button id="lang-toggle" class="text-gray-700 focus:outline-none">
+            <i class="fas fa-globe text-2xl"></i>
+          </button>
+          <button id="menu-btn" class="text-gray-700 focus:outline-none md:hidden">
             <i class="fas fa-bars text-2xl"></i>
           </button>
         </div>
       </div>
     </div>
     <!-- Mobile menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-white pb-4 px-4">
-      <a href="#inici" class="block py-2 text-gray-700 hover:text-primary transition" data-i18n="nav.home">Inici</a>
-      <a href="#sobre-mi" class="block py-2 text-gray-700 hover:text-primary transition" data-i18n="nav.about">Sobre mi</a>
-      <a href="#habilitats" class="block py-2 text-gray-700 hover:text-primary transition" data-i18n="nav.skills">Habilitats</a>
-      <a href="#experiencia" class="block py-2 text-gray-700 hover:text-primary transition" data-i18n="nav.experience">Experiència</a>
-      <a href="#projectes" class="block py-2 text-gray-700 hover:text-primary transition" data-i18n="nav.projects">Projectes</a>
+    <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-sm pb-4 px-4">
+      <a href="#inici" class="block py-2 text-gray-700 hover:text-primary transition nav-link" data-i18n="nav.home">Inici</a>
+      <a href="#sobre-mi" class="block py-2 text-gray-700 hover:text-primary transition nav-link" data-i18n="nav.about">Sobre mi</a>
+      <a href="#habilitats" class="block py-2 text-gray-700 hover:text-primary transition nav-link" data-i18n="nav.skills">Habilitats</a>
+      <a href="#experiencia" class="block py-2 text-gray-700 hover:text-primary transition nav-link" data-i18n="nav.experience">Experiència</a>
+      <a href="#projectes" class="block py-2 text-gray-700 hover:text-primary transition nav-link" data-i18n="nav.projects">Projectes</a>
       <a href="#contacte" class="block bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary transition w-max mt-2" data-i18n="nav.contact">Contacte</a>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <section id="inici" class="py-20 bg-gradient-to-r from-blue-50 to-indigo-50">
+  <section id="inici" class="py-20">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row items-center justify-between">
-        <div class="md:w-1/2 mb-10 md:mb-0">
+        <div class="md:w-1/2 mb-10 md:mb-0 animate-slide-up">
           <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4" data-i18n="hero.title">Hola, sóc <span class="text-primary">Joel</span></h1>
           <h2 class="text-2xl md:text-3xl font-semibold text-gray-700 mb-6" data-i18n="hero.subtitle">Desenvolupador FullStack</h2>
           <p class="text-gray-600 mb-8 text-lg" data-i18n="hero.description">Capaç de dissenyar i implementar solucions integrals, tant en backend com en frontend, amb un enfocament en la qualitat del codi i l'optimització de processos.</p>
           <div class="flex space-x-4">
-            <a href="#contacte" class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-secondary transition font-medium" data-i18n="hero.contactBtn">Contacta'm</a>
-            <a href="#projectes" class="border border-primary text-primary px-6 py-3 rounded-lg hover:bg-blue-50 transition font-medium" data-i18n="hero.projectsBtn">Els meus projectes</a>
+            <a href="#contacte" class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-secondary transition font-medium shadow-md hover:shadow-lg transform hover:-translate-y-1" data-i18n="hero.contactBtn">Contacta'm</a>
+            <a href="#projectes" class="border-2 border-primary text-primary px-6 py-3 rounded-lg hover:bg-blue-50 transition font-medium shadow-md hover:shadow-lg transform hover:-translate-y-1" data-i18n="hero.projectsBtn">Els meus projectes</a>
           </div>
         </div>
-        <div class="md:w-1/2 flex justify-center">
-          <div class="relative w-64 h-64 md:w-80 md:h-80 bg-primary rounded-full overflow-hidden shadow-xl">
-            <!-- Placeholder for your photo -->
+        <div class="md:w-1/2 flex justify-center animate-float">
+          <div class="relative w-64 h-64 md:w-80 md:h-80 bg-gradient-to-br from-primary to-secondary rounded-full overflow-hidden shadow-2xl">
             <div class="w-full h-full bg-gray-200 flex items-center justify-center">
-              <i class="fas fa-user text-6xl text-gray-400"></i>
+              <i class="fas fa-user text-6xl text-white opacity-30"></i>
             </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-dark/20 to-transparent"></div>
           </div>
         </div>
       </div>
@@ -78,64 +85,68 @@
   <!-- About Section -->
   <section id="sobre-mi" class="py-20 bg-white">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-bold text-center text-gray-800 mb-12" data-i18n="about.title">Sobre <span class="text-primary">mi</span></h2>
+      <h2 class="text-3xl font-bold text-center text-gray-800 mb-12 animate-fade-in" data-i18n="about.title">Sobre <span class="text-primary">mi</span></h2>
       
       <div class="flex flex-col md:flex-row gap-12">
         <div class="md:w-1/2">
-          <h3 class="text-xl font-semibold text-gray-700 mb-4" data-i18n="about.personalInfo">Informació personal</h3>
-          <ul class="space-y-3">
-            <li class="flex items-start">
-              <i class="fas fa-birthday-cake text-primary mt-1 mr-3"></i>
-              <span><strong data-i18n="about.birthdateLabel">Data de naixement:</strong> <span data-i18n="about.birthdate">07/11/2003 (21 anys)</span></span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-phone text-primary mt-1 mr-3"></i>
-              <span><strong data-i18n="about.phoneLabel">Telèfon:</strong> 678 16 82 06</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fab fa-github text-primary mt-1 mr-3"></i>
-              <span><strong>GitHub:</strong> <a href="https://github.com/JoelCMDev" target="_blank" class="text-primary hover:underline">github.com/JoelCMDev</a></span>
-            </li>
-          </ul>
-          
-          <h3 class="text-xl font-semibold text-gray-700 mt-8 mb-4" data-i18n="about.personalSkills">Habilitats personals</h3>
-          <ul class="space-y-2">
-            <li class="flex items-start">
-              <i class="fas fa-check text-primary mt-1 mr-3"></i>
-              <span data-i18n="skills.teamwork">Treball en equip</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-check text-primary mt-1 mr-3"></i>
-              <span data-i18n="skills.problemSolving">Resolució de problemes</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-check text-primary mt-1 mr-3"></i>
-              <span data-i18n="skills.proactive">Proactiu</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-check text-primary mt-1 mr-3"></i>
-              <span data-i18n="skills.adaptability">Adaptabilitat</span>
-            </li>
-          </ul>
+          <div class="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+            <h3 class="text-xl font-semibold text-gray-700 mb-4" data-i18n="about.personalInfo">Informació personal</h3>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <i class="fas fa-birthday-cake text-primary mt-1 mr-3"></i>
+                <span><strong data-i18n="about.birthdateLabel">Data de naixement:</strong> <span data-i18n="about.birthdate">07/11/2003 (21 anys)</span></span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-phone text-primary mt-1 mr-3"></i>
+                <span><strong data-i18n="about.phoneLabel">Telèfon:</strong> 678 16 82 06</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fab fa-github text-primary mt-1 mr-3"></i>
+                <span><strong>GitHub:</strong> <a href="https://github.com/JoelCMDev" target="_blank" class="text-primary hover:underline">github.com/JoelCMDev</a></span>
+              </li>
+            </ul>
+            
+            <h3 class="text-xl font-semibold text-gray-700 mt-8 mb-4" data-i18n="about.personalSkills">Habilitats personals</h3>
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <i class="fas fa-check text-primary mt-1 mr-3"></i>
+                <span data-i18n="skills.teamwork">Treball en equip</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-primary mt-1 mr-3"></i>
+                <span data-i18n="skills.problemSolving">Resolució de problemes</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-primary mt-1 mr-3"></i>
+                <span data-i18n="skills.proactive">Proactiu</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-primary mt-1 mr-3"></i>
+                <span data-i18n="skills.adaptability">Adaptabilitat</span>
+              </li>
+            </ul>
+          </div>
         </div>
         
         <div class="md:w-1/2">
-          <h3 class="text-xl font-semibold text-gray-700 mb-4" data-i18n="about.education">Educació</h3>
-          <div class="space-y-6">
-            <div class="border-l-4 border-primary pl-4 py-2">
-              <h4 class="font-bold text-gray-800" data-i18n="education.degree1">Cicle Formatiu de Grau Superior, DAM</h4>
-              <p class="text-gray-600" data-i18n="education.degree1Status">Cursant el segon any</p>
-              <p class="text-gray-500 text-sm">2023 - <span data-i18n="education.present">Actualitat</span> | <span data-i18n="education.school1">Institut de l'Ebre</span></p>
-            </div>
-            <div class="border-l-4 border-primary pl-4 py-2">
-              <h4 class="font-bold text-gray-800" data-i18n="education.degree2">Cicle Formatiu de Grau Mitjà, SMX</h4>
-              <p class="text-gray-600" data-i18n="education.degree2Status">Finalitzat</p>
-              <p class="text-gray-500 text-sm">2021 - 2023 | <span data-i18n="education.school2">Institut de l'Ebre</span></p>
-            </div>
-            <div class="border-l-4 border-primary pl-4 py-2">
-              <h4 class="font-bold text-gray-800" data-i18n="education.certificate">Certificat KET (Key English Test)</h4>
-              <p class="text-gray-600" data-i18n="education.certificateStatus">Finalitzat</p>
-              <p class="text-gray-500 text-sm">2019 | <span data-i18n="education.school3">Irish School</span></p>
+          <div class="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+            <h3 class="text-xl font-semibold text-gray-700 mb-4" data-i18n="about.education">Educació</h3>
+            <div class="space-y-6">
+              <div class="border-l-4 border-primary pl-4 py-2 hover:bg-white transition duration-300 rounded-r-lg">
+                <h4 class="font-bold text-gray-800" data-i18n="education.degree1">Cicle Formatiu de Grau Superior, DAM</h4>
+                <p class="text-gray-600" data-i18n="education.degree1Status">Finalitzat (2025)</p>
+                <p class="text-gray-500 text-sm">2023 - 2025 | <span data-i18n="education.school1">Institut de l'Ebre</span></p>
+              </div>
+              <div class="border-l-4 border-primary pl-4 py-2 hover:bg-white transition duration-300 rounded-r-lg">
+                <h4 class="font-bold text-gray-800" data-i18n="education.degree2">Cicle Formatiu de Grau Mitjà, SMX</h4>
+                <p class="text-gray-600" data-i18n="education.degree2Status">Finalitzat</p>
+                <p class="text-gray-500 text-sm">2021 - 2023 | <span data-i18n="education.school2">Institut de l'Ebre</span></p>
+              </div>
+              <div class="border-l-4 border-primary pl-4 py-2 hover:bg-white transition duration-300 rounded-r-lg">
+                <h4 class="font-bold text-gray-800" data-i18n="education.certificate">Certificat KET (Key English Test)</h4>
+                <p class="text-gray-600" data-i18n="education.certificateStatus">Finalitzat</p>
+                <p class="text-gray-500 text-sm">2019 | <span data-i18n="education.school3">Irish School</span></p>
+              </div>
             </div>
           </div>
         </div>
@@ -144,13 +155,13 @@
   </section>
 
   <!-- Skills Section -->
-  <section id="habilitats" class="py-20 bg-gray-50">
+  <section id="habilitats" class="py-20 bg-gradient-to-br from-gray-50 to-indigo-50">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-bold text-center text-gray-800 mb-12" data-i18n="skills.title">Habilitats <span class="text-primary">tècniques</span></h2>
+      <h2 class="text-3xl font-bold text-center text-gray-800 mb-12 animate-fade-in" data-i18n="skills.title">Habilitats <span class="text-primary">tècniques</span></h2>
       
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Programming Languages -->
-        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-2">
           <div class="flex items-center mb-4">
             <div class="bg-primary p-2 rounded-lg mr-4">
               <i class="fas fa-code text-white text-xl"></i>
@@ -168,7 +179,7 @@
         </div>
         
         <!-- Backend Technologies -->
-        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-2">
           <div class="flex items-center mb-4">
             <div class="bg-primary p-2 rounded-lg mr-4">
               <i class="fas fa-server text-white text-xl"></i>
@@ -184,7 +195,7 @@
         </div>
         
         <!-- Frontend Technologies -->
-        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-2">
           <div class="flex items-center mb-4">
             <div class="bg-primary p-2 rounded-lg mr-4">
               <i class="fas fa-paint-brush text-white text-xl"></i>
@@ -202,7 +213,7 @@
         </div>
         
         <!-- Databases -->
-        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-2">
           <div class="flex items-center mb-4">
             <div class="bg-primary p-2 rounded-lg mr-4">
               <i class="fas fa-database text-white text-xl"></i>
@@ -217,7 +228,7 @@
         </div>
         
         <!-- Other Skills -->
-        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-2">
           <div class="flex items-center mb-4">
             <div class="bg-primary p-2 rounded-lg mr-4">
               <i class="fas fa-tools text-white text-xl"></i>
@@ -237,11 +248,11 @@
   <!-- Experience Section -->
   <section id="experiencia" class="py-20 bg-white">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-bold text-center text-gray-800 mb-12" data-i18n="experience.title">Experiència <span class="text-primary">laboral</span></h2>
+      <h2 class="text-3xl font-bold text-center text-gray-800 mb-12 animate-fade-in" data-i18n="experience.title">Experiència <span class="text-primary">laboral</span></h2>
       
       <div class="space-y-8">
         <!-- DISI Experience -->
-        <div class="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition">
+        <div class="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-2">
           <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
             <h3 class="text-xl font-bold text-gray-800" data-i18n="experience.job1Title">Desenvolupador Full Stack Junior (Pràctiques Duals)</h3>
             <span class="bg-primary text-white px-3 py-1 rounded-full text-sm mt-2 md:mt-0">2024 - 2025</span>
@@ -255,7 +266,7 @@
         </div>
         
         <!-- Freelance Experience -->
-        <div class="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition">
+        <div class="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-2">
           <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
             <h3 class="text-xl font-bold text-gray-800" data-i18n="experience.job2Title">Desenvolupador Freelance</h3>
             <span class="bg-primary text-white px-3 py-1 rounded-full text-sm mt-2 md:mt-0" data-i18n="experience.job2Duration">2 mesos</span>
@@ -269,7 +280,7 @@
         </div>
         
         <!-- Consejo Comarcal Experience -->
-        <div class="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition">
+        <div class="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-2">
           <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
             <h3 class="text-xl font-bold text-gray-800" data-i18n="experience.job3Title">Tècnic de Manteniment Informàtic (Pràctiques)</h3>
             <span class="bg-primary text-white px-3 py-1 rounded-full text-sm mt-2 md:mt-0">2022 - 2023</span>
@@ -288,11 +299,11 @@
   <!-- Projects Section -->
   <section id="projectes" class="py-20 bg-gray-50">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-bold text-center text-gray-800 mb-12" data-i18n="projects.title">Els meus <span class="text-primary">projectes</span></h2>
+      <h2 class="text-3xl font-bold text-center text-gray-800 mb-12 animate-fade-in" data-i18n="projects.title">Els meus <span class="text-primary">projectes</span></h2>
       
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <!-- Cats Rescat Project -->
-        <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition">
+        <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-2">
           <div class="h-48 bg-gray-200 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Cats Rescat" class="w-full h-full object-cover">
           </div>
@@ -311,7 +322,7 @@
         </div>
         
         <!-- Cono Pizza Brooklyn Project -->
-        <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition">
+        <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-2">
           <div class="h-48 bg-gray-200 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Cono Pizza Brooklyn" class="w-full h-full object-cover">
           </div>
@@ -335,11 +346,11 @@
   <!-- Contact Section -->
   <section id="contacte" class="py-20 bg-gradient-to-r from-blue-50 to-indigo-50">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-bold text-center text-gray-800 mb-12" data-i18n="contact.title">Contacta <span class="text-primary">amb mi</span></h2>
+      <h2 class="text-3xl font-bold text-center text-gray-800 mb-12 animate-fade-in" data-i18n="contact.title">Contacta <span class="text-primary">amb mi</span></h2>
       
       <div class="flex flex-col md:flex-row gap-12">
         <div class="md:w-1/2">
-          <div class="bg-white p-8 rounded-xl shadow-lg">
+          <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-2">
             <h3 class="text-xl font-semibold text-gray-800 mb-6" data-i18n="contact.sendMessage">Envia'm un missatge</h3>
             <form class="space-y-4">
               <div>
@@ -360,7 +371,7 @@
         </div>
         
         <div class="md:w-1/2">
-          <div class="bg-white p-8 rounded-xl shadow-lg h-full">
+          <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-2 h-full">
             <h3 class="text-xl font-semibold text-gray-800 mb-6" data-i18n="contact.contactInfo">Informació de contacte</h3>
             <div class="space-y-6">
               <div class="flex items-start">
@@ -422,7 +433,7 @@
           <span class="text-2xl font-bold">JoelCMDev</span>
           <p class="text-gray-400 mt-1" data-i18n="footer.subtitle">Desenvolupador FullStack</p>
         </div>
-        <div class="flex space-x-6">
+        <div class="flex flex-wrap justify-center space-x-4 space-y-2 md:space-y-0 md:space-x-6 md:justify-end">
           <a href="#inici" class="text-gray-400 hover:text-white transition" data-i18n="nav.home">Inici</a>
           <a href="#sobre-mi" class="text-gray-400 hover:text-white transition" data-i18n="nav.about">Sobre mi</a>
           <a href="#habilitats" class="text-gray-400 hover:text-white transition" data-i18n="nav.skills">Habilitats</a>
@@ -436,7 +447,7 @@
       </div>
     </div>
   </footer>
-
+  
   
 </body>
 </html>

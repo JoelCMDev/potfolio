@@ -6,6 +6,19 @@ menuBtn.addEventListener('click', () => {
   mobileMenu.classList.toggle('hidden');
 });
 
+// Language selector toggle
+const langToggle = document.getElementById('lang-toggle');
+const langSelector = document.getElementById('lang-selector');
+const langClose = document.getElementById('lang-close');
+
+langToggle.addEventListener('click', () => {
+  langSelector.classList.toggle('hidden');
+});
+
+langClose.addEventListener('click', () => {
+  langSelector.classList.add('hidden');
+});
+
 // Language translations
 const translations = {
   ca: {
