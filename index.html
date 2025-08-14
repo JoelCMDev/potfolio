@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JoelCMDev | FullStack Developer</title>
+  <link rel="stylesheet" href="/src/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50 font-sans text-gray-800">
+  <!-- Language Selector -->
+  <div class="fixed top-4 right-4 z-50 flex space-x-2 bg-white p-2 rounded-full shadow-md">
+    <button onclick="changeLanguage('ca')" class="language-selector active-lang" id="lang-ca">CA</button>
+    <button onclick="changeLanguage('es')" class="language-selector" id="lang-es">ES</button>
+    <button onclick="changeLanguage('en')" class="language-selector" id="lang-en">EN</button>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="bg-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex justify-between items-center py-4">
+        <div class="flex items-center space-x-4">
+          <span class="text-2xl font-bold text-primary">JoelCMDev</span>
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#inici" class="text-gray-700 hover:text-primary transition" data-i18n="nav.home">Inici</a>
+          <a href="#sobre-mi" class="text-gray-700 hover:text-primary transition" data-i18n="nav.about">Sobre mi</a>
+          <a href="#habilitats" class="text-gray-700 hover:text-primary transition" data-i18n="nav.skills">Habilitats</a>
+          <a href="#experiencia" class="text-gray-700 hover:text-primary transition" data-i18n="nav.experience">Experiència</a>
+          <a href="#projectes" class="text-gray-700 hover:text-primary transition" data-i18n="nav.projects">Projectes</a>
+          <a href="#contacte" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary transition" data-i18n="nav.contact">Contacte</a>
+        </div>
+        <div class="md:hidden">
+          <button id="menu-btn" class="text-gray-700 focus:outline-none">
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white pb-4 px-4">
+      <a href="#inici" class="block py-2 text-gray-700 hover:text-primary transition" data-i18n="nav.home">Inici</a>
+      <a href="#sobre-mi" class="block py-2 text-gray-700 hover:text-primary transition" data-i18n="nav.about">Sobre mi</a>
+      <a href="#habilitats" class="block py-2 text-gray-700 hover:text-primary transition" data-i18n="nav.skills">Habilitats</a>
+      <a href="#experiencia" class="block py-2 text-gray-700 hover:text-primary transition" data-i18n="nav.experience">Experiència</a>
+      <a href="#projectes" class="block py-2 text-gray-700 hover:text-primary transition" data-i18n="nav.projects">Projectes</a>
+      <a href="#contacte" class="block bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary transition w-max mt-2" data-i18n="nav.contact">Contacte</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="inici" class="py-20 bg-gradient-to-r from-blue-50 to-indigo-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between">
+        <div class="md:w-1/2 mb-10 md:mb-0">
+          <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4" data-i18n="hero.title">Hola, sóc <span class="text-primary">Joel</span></h1>
+          <h2 class="text-2xl md:text-3xl font-semibold text-gray-700 mb-6" data-i18n="hero.subtitle">Desenvolupador FullStack</h2>
+          <p class="text-gray-600 mb-8 text-lg" data-i18n="hero.description">Capaç de dissenyar i implementar solucions integrals, tant en backend com en frontend, amb un enfocament en la qualitat del codi i l'optimització de processos.</p>
+          <div class="flex space-x-4">
+            <a href="#contacte" class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-secondary transition font-medium" data-i18n="hero.contactBtn">Contacta'm</a>
+            <a href="#projectes" class="border border-primary text-primary px-6 py-3 rounded-lg hover:bg-blue-50 transition font-medium" data-i18n="hero.projectsBtn">Els meus projectes</a>
+          </div>
+        </div>
+        <div class="md:w-1/2 flex justify-center">
+          <div class="relative w-64 h-64 md:w-80 md:h-80 bg-primary rounded-full overflow-hidden shadow-xl">
+            <!-- Placeholder for your photo -->
+            <div class="w-full h-full bg-gray-200 flex items-center justify-center">
+              <i class="fas fa-user text-6xl text-gray-400"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="sobre-mi" class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-center text-gray-800 mb-12" data-i18n="about.title">Sobre <span class="text-primary">mi</span></h2>
+      
+      <div class="flex flex-col md:flex-row gap-12">
+        <div class="md:w-1/2">
+          <h3 class="text-xl font-semibold text-gray-700 mb-4" data-i18n="about.personalInfo">Informació personal</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <i class="fas fa-birthday-cake text-primary mt-1 mr-3"></i>
+              <span><strong data-i18n="about.birthdateLabel">Data de naixement:</strong> <span data-i18n="about.birthdate">07/11/2003 (21 anys)</span></span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-phone text-primary mt-1 mr-3"></i>
+              <span><strong data-i18n="about.phoneLabel">Telèfon:</strong> 678 16 82 06</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fab fa-github text-primary mt-1 mr-3"></i>
+              <span><strong>GitHub:</strong> <a href="https://github.com/JoelCMDev" target="_blank" class="text-primary hover:underline">github.com/JoelCMDev</a></span>
+            </li>
+          </ul>
+          
+          <h3 class="text-xl font-semibold text-gray-700 mt-8 mb-4" data-i18n="about.personalSkills">Habilitats personals</h3>
+          <ul class="space-y-2">
+            <li class="flex items-start">
+              <i class="fas fa-check text-primary mt-1 mr-3"></i>
+              <span data-i18n="skills.teamwork">Treball en equip</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-primary mt-1 mr-3"></i>
+              <span data-i18n="skills.problemSolving">Resolució de problemes</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-primary mt-1 mr-3"></i>
+              <span data-i18n="skills.proactive">Proactiu</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-primary mt-1 mr-3"></i>
+              <span data-i18n="skills.adaptability">Adaptabilitat</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="md:w-1/2">
+          <h3 class="text-xl font-semibold text-gray-700 mb-4" data-i18n="about.education">Educació</h3>
+          <div class="space-y-6">
+            <div class="border-l-4 border-primary pl-4 py-2">
+              <h4 class="font-bold text-gray-800" data-i18n="education.degree1">Cicle Formatiu de Grau Superior, DAM</h4>
+              <p class="text-gray-600" data-i18n="education.degree1Status">Cursant el segon any</p>
+              <p class="text-gray-500 text-sm">2023 - <span data-i18n="education.present">Actualitat</span> | <span data-i18n="education.school1">Institut de l'Ebre</span></p>
+            </div>
+            <div class="border-l-4 border-primary pl-4 py-2">
+              <h4 class="font-bold text-gray-800" data-i18n="education.degree2">Cicle Formatiu de Grau Mitjà, SMX</h4>
+              <p class="text-gray-600" data-i18n="education.degree2Status">Finalitzat</p>
+              <p class="text-gray-500 text-sm">2021 - 2023 | <span data-i18n="education.school2">Institut de l'Ebre</span></p>
+            </div>
+            <div class="border-l-4 border-primary pl-4 py-2">
+              <h4 class="font-bold text-gray-800" data-i18n="education.certificate">Certificat KET (Key English Test)</h4>
+              <p class="text-gray-600" data-i18n="education.certificateStatus">Finalitzat</p>
+              <p class="text-gray-500 text-sm">2019 | <span data-i18n="education.school3">Irish School</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="habilitats" class="py-20 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-center text-gray-800 mb-12" data-i18n="skills.title">Habilitats <span class="text-primary">tècniques</span></h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Programming Languages -->
+        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+          <div class="flex items-center mb-4">
+            <div class="bg-primary p-2 rounded-lg mr-4">
+              <i class="fas fa-code text-white text-xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-800" data-i18n="skills.programming">Llenguatges de programació</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">C#</span>
+            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Java</span>
+            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Python</span>
+            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Laravel</span>
+            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">PHP</span>
+            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Kotlin</span>
+          </div>
+        </div>
+        
+        <!-- Backend Technologies -->
+        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+          <div class="flex items-center mb-4">
+            <div class="bg-primary p-2 rounded-lg mr-4">
+              <i class="fas fa-server text-white text-xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-800" data-i18n="skills.backend">Backend</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm">.NET</span>
+            <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm">Odoo</span>
+            <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm">Flask</span>
+            <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm">Node.js</span>
+          </div>
+        </div>
+        
+        <!-- Frontend Technologies -->
+        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+          <div class="flex items-center mb-4">
+            <div class="bg-primary p-2 rounded-lg mr-4">
+              <i class="fas fa-paint-brush text-white text-xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-800" data-i18n="skills.frontend">Frontend</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">HTML</span>
+            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">CSS</span>
+            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Tailwind</span>
+            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Vue.js</span>
+            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Blade (Laravel)</span>
+            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">WordPress</span>
+          </div>
+        </div>
+        
+        <!-- Databases -->
+        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+          <div class="flex items-center mb-4">
+            <div class="bg-primary p-2 rounded-lg mr-4">
+              <i class="fas fa-database text-white text-xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-800" data-i18n="skills.databases">Bases de dades</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">SQL</span>
+            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">PostgreSQL</span>
+            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">MongoDB</span>
+          </div>
+        </div>
+        
+        <!-- Other Skills -->
+        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+          <div class="flex items-center mb-4">
+            <div class="bg-primary p-2 rounded-lg mr-4">
+              <i class="fas fa-tools text-white text-xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-800" data-i18n="skills.other">Altres habilitats</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm" data-i18n="skills.itMaintenance">Manteniment informàtic</span>
+            <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm" data-i18n="skills.networkConfig">Configuració de xarxes</span>
+            <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm" data-i18n="skills.troubleshooting">Resolució de problemes</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experiencia" class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-center text-gray-800 mb-12" data-i18n="experience.title">Experiència <span class="text-primary">laboral</span></h2>
+      
+      <div class="space-y-8">
+        <!-- DISI Experience -->
+        <div class="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+            <h3 class="text-xl font-bold text-gray-800" data-i18n="experience.job1Title">Desenvolupador Full Stack Junior (Pràctiques Duals)</h3>
+            <span class="bg-primary text-white px-3 py-1 rounded-full text-sm mt-2 md:mt-0">2024 - 2025</span>
+          </div>
+          <h4 class="text-lg font-semibold text-gray-700 mb-4">DISI</h4>
+          <ul class="list-disc pl-5 space-y-2 text-gray-600">
+            <li data-i18n="experience.job1Desc1">Desenvolupament i manteniment d'aplicacions amb C# i .NET, projectes d'escriptori i web.</li>
+            <li data-i18n="experience.job1Desc2">Gestió de bases de dades amb SQL per a l'optimització i consulta de dades.</li>
+            <li data-i18n="experience.job1Desc3">Creació i personalització de llocs web amb WordPress, aplicant HTML i CSS per a dissenys responsius i funcionals.</li>
+          </ul>
+        </div>
+        
+        <!-- Freelance Experience -->
+        <div class="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+            <h3 class="text-xl font-bold text-gray-800" data-i18n="experience.job2Title">Desenvolupador Freelance</h3>
+            <span class="bg-primary text-white px-3 py-1 rounded-full text-sm mt-2 md:mt-0" data-i18n="experience.job2Duration">2 mesos</span>
+          </div>
+          <h4 class="text-lg font-semibold text-gray-700 mb-4" data-i18n="experience.job2Company">Projectes independents</h4>
+          <ul class="list-disc pl-5 space-y-2 text-gray-600">
+            <li data-i18n="experience.job2Desc1">Desenvolupament de llocs web personalitzats per a clients.</li>
+            <li data-i18n="experience.job2Desc2">Implementació de sistemes de gestió de continguts.</li>
+            <li data-i18n="experience.job2Desc3">Creació d'interfícies d'usuari atractives i funcionals.</li>
+          </ul>
+        </div>
+        
+        <!-- Consejo Comarcal Experience -->
+        <div class="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+            <h3 class="text-xl font-bold text-gray-800" data-i18n="experience.job3Title">Tècnic de Manteniment Informàtic (Pràctiques)</h3>
+            <span class="bg-primary text-white px-3 py-1 rounded-full text-sm mt-2 md:mt-0">2022 - 2023</span>
+          </div>
+          <h4 class="text-lg font-semibold text-gray-700 mb-4" data-i18n="experience.job3Company">Consell Comarcal del Baix Ebre</h4>
+          <ul class="list-disc pl-5 space-y-2 text-gray-600">
+            <li data-i18n="experience.job3Desc1">Resolució de problemes tècnics en equips informàtics, incloent-hi manteniment de hardware i software.</li>
+            <li data-i18n="experience.job3Desc2">Suport a usuaris en l'ús de sistemes i aplicacions, garantint la continuitat del servei.</li>
+            <li data-i18n="experience.job3Desc3">Documentació de processos tècnics per facilitar la gestió interna.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projectes" class="py-20 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-center text-gray-800 mb-12" data-i18n="projects.title">Els meus <span class="text-primary">projectes</span></h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Cats Rescat Project -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition">
+          <div class="h-48 bg-gray-200 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Cats Rescat" class="w-full h-full object-cover">
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Cats Rescat</h3>
+            <p class="text-gray-600 mb-4" data-i18n="projects.project1Desc">Pàgina web per a una associació de rescat de gats a Jesús, desenvolupada amb Tailwind CSS i desplegada a Vercel.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">Tailwind CSS</span>
+              <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs" data-i18n="projects.responsive">Responsive</span>
+              <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">Vercel</span>
+            </div>
+            <a href="https://cats-rescat.vercel.app/" target="_blank" class="text-primary font-medium hover:underline flex items-center" data-i18n="projects.visitProject">
+              Visitar projecte <i class="fas fa-external-link-alt ml-2"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Cono Pizza Brooklyn Project -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition">
+          <div class="h-48 bg-gray-200 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Cono Pizza Brooklyn" class="w-full h-full object-cover">
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Cono Pizza Brooklyn</h3>
+            <p class="text-gray-600 mb-4" data-i18n="projects.project2Desc">Pàgina web per a una pizzería amb gestió d'administrador per canviar menús, desenvolupada amb Laravel.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs">Laravel</span>
+              <span class="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs">PHP</span>
+              <span class="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs" data-i18n="projects.adminSystem">Sistema d'admin</span>
+            </div>
+            <a href="https://conopizzabrooklyn.com/" target="_blank" class="text-primary font-medium hover:underline flex items-center" data-i18n="projects.visitProject">
+              Visitar projecte <i class="fas fa-external-link-alt ml-2"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contacte" class="py-20 bg-gradient-to-r from-blue-50 to-indigo-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-center text-gray-800 mb-12" data-i18n="contact.title">Contacta <span class="text-primary">amb mi</span></h2>
+      
+      <div class="flex flex-col md:flex-row gap-12">
+        <div class="md:w-1/2">
+          <div class="bg-white p-8 rounded-xl shadow-lg">
+            <h3 class="text-xl font-semibold text-gray-800 mb-6" data-i18n="contact.sendMessage">Envia'm un missatge</h3>
+            <form class="space-y-4">
+              <div>
+                <label for="name" class="block text-gray-700 mb-2" data-i18n="contact.name">Nom</label>
+                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+              </div>
+              <div>
+                <label for="email" class="block text-gray-700 mb-2" data-i18n="contact.email">Correu electrònic</label>
+                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+              </div>
+              <div>
+                <label for="message" class="block text-gray-700 mb-2" data-i18n="contact.message">Missatge</label>
+                <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"></textarea>
+              </div>
+              <button type="submit" class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-secondary transition w-full font-medium" data-i18n="contact.sendBtn">Enviar missatge</button>
+            </form>
+          </div>
+        </div>
+        
+        <div class="md:w-1/2">
+          <div class="bg-white p-8 rounded-xl shadow-lg h-full">
+            <h3 class="text-xl font-semibold text-gray-800 mb-6" data-i18n="contact.contactInfo">Informació de contacte</h3>
+            <div class="space-y-6">
+              <div class="flex items-start">
+                <div class="bg-primary p-3 rounded-lg mr-4">
+                  <i class="fas fa-phone text-white"></i>
+                </div>
+                <div>
+                  <h4 class="font-medium text-gray-800" data-i18n="contact.phone">Telèfon</h4>
+                  <p class="text-gray-600">678 16 82 06</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div class="bg-primary p-3 rounded-lg mr-4">
+                  <i class="fab fa-github text-white"></i>
+                </div>
+                <div>
+                  <h4 class="font-medium text-gray-800">GitHub</h4>
+                  <p class="text-gray-600">
+                    <a href="https://github.com/JoelCMDev" target="_blank" class="text-primary hover:underline">github.com/JoelCMDev</a>
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div class="bg-primary p-3 rounded-lg mr-4">
+                  <i class="fas fa-map-marker-alt text-white"></i>
+                </div>
+                <div>
+                  <h4 class="font-medium text-gray-800" data-i18n="contact.location">Ubicació</h4>
+                  <p class="text-gray-600" data-i18n="contact.locationValue">Baix Ebre, Catalunya</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mt-8">
+              <h4 class="font-medium text-gray-800 mb-4" data-i18n="contact.findMe">També em pots trobar a:</h4>
+              <div class="flex space-x-4">
+                <a href="#" class="bg-gray-100 p-3 rounded-full hover:bg-gray-200 transition">
+                  <i class="fab fa-linkedin-in text-gray-700"></i>
+                </a>
+                <a href="#" class="bg-gray-100 p-3 rounded-full hover:bg-gray-200 transition">
+                  <i class="fab fa-twitter text-gray-700"></i>
+                </a>
+                <a href="#" class="bg-gray-100 p-3 rounded-full hover:bg-gray-200 transition">
+                  <i class="fab fa-instagram text-gray-700"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-4 md:mb-0">
+          <span class="text-2xl font-bold">JoelCMDev</span>
+          <p class="text-gray-400 mt-1" data-i18n="footer.subtitle">Desenvolupador FullStack</p>
+        </div>
+        <div class="flex space-x-6">
+          <a href="#inici" class="text-gray-400 hover:text-white transition" data-i18n="nav.home">Inici</a>
+          <a href="#sobre-mi" class="text-gray-400 hover:text-white transition" data-i18n="nav.about">Sobre mi</a>
+          <a href="#habilitats" class="text-gray-400 hover:text-white transition" data-i18n="nav.skills">Habilitats</a>
+          <a href="#experiencia" class="text-gray-400 hover:text-white transition" data-i18n="nav.experience">Experiència</a>
+          <a href="#projectes" class="text-gray-400 hover:text-white transition" data-i18n="nav.projects">Projectes</a>
+          <a href="#contacte" class="text-gray-400 hover:text-white transition" data-i18n="nav.contact">Contacte</a>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+        <p data-i18n="footer.copyright">&copy; 2023 JoelCMDev. Tots els drets reservats.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/script.js"></script>
+</body>
+</html>
